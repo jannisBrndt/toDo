@@ -2,7 +2,7 @@
 #include "../include/task.h"
 
 // test the initialization of the constructor
-TEST(TaskTest, ConstructorInitialization) {
+TEST(TestTask, ConstructorInitialization) {
   
   // create a mock title, description and id
   std::string title = "test";
@@ -24,7 +24,7 @@ TEST(TaskTest, ConstructorInitialization) {
 }
 
 // test the functionality of setter functions
-TEST(TaskTest, SetterFunctionality) {
+TEST(TestTask, SetterFunctionality) {
   // create mock data for the task
   std::string title = "test";
   std::string description = "this is a test";

@@ -32,3 +32,10 @@ class Task {
     void setId(size_t newId);
     void setNext(Task* newNext);
 };
+
+inline Task* createTask(std::string title,
+			std::string description,
+			size_t id,
+			Task* next) {
+  return new Task(title, description, id, next);
+}
