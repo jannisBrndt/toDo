@@ -23,4 +23,7 @@ class List {
     // append a node to the list
     void appendTask(Task* newTask);
 
+    // delete a task by title
+    void deleteTaskByTitle(std::string title);
+
 };

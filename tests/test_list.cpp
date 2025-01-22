@@ -63,3 +63,27 @@ TEST(TestList, AppendTwoTasks) {
   EXPECT_EQ(test.getHead()->getNext(), newTask2);
 
 }
+
+TEST(TestList, DeleteTaskByTitle) {
+  
+  // create some mock data
+  std::string title = "test";
+  std::string description = "test description";
+  size_t id = 1;
+  Task* next = nullptr;
+
+  // create a mock task from the data above
+  Task* newTask = createTask(title, description, id, next);
+
+  // create a list
+  List test;
+  
+  // append the mock task to the mock list
+  test.appendTask(newTask);
+  
+  // delete the task
+  test.deleteTaskByTitle(title);
+  
+  // the head should be nullptr
+  EXPECT_EQ(test.getHead(), nullptr);
+}

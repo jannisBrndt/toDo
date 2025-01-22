@@ -44,3 +44,45 @@ void List::appendTask(Task* newTask) {
   current->setNext(newTask);
   }
 }
+
+// function to delete a task by its title
+void List::deleteTaskByTitle(std::string title) {
+  
+  // check if list is empty
+  if (head == nullptr) {
+    // if true stop function
+    return;
+  }
+
+  // check if head is task to be deleted
+  if (head->getTitle() == title) {
+    Task* tmp = head;
+    head = tmp->getNext();
+    delete tmp;
+    return;
+  }
+
+  // otherwise, set a search starting point
+  Task* current = head;
+
+  // check if the next node is not a nullptr and nexts node's title is not the searched title
+  while (current->getNext() != nullptr && 
+	 current->getNext()->getTitle() != title) {
+    
+    // go to the next node
+    current = current->getNext();
+  }
+  
+  // if task is found check if next is not a nullptr
+  if (current->getNext() != nullptr) {
+
+    Task* tmp = current->getNext();
+    
+    // link around the node to be deleted
+    current->setNext(tmp->getNext());
+
+    delete tmp;
+  }
+
+  // if task cant be found do nothing
+}
