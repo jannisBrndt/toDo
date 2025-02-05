@@ -14,7 +14,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 # ------------------------------------------------------------------
 set(SOURCES
         # Add more source files here...
-	src/task.cpp
+	src/node.cpp
 	src/list.cpp
 )
 
@@ -66,7 +66,7 @@ enable_testing()
 # ------------------------------------------------------------------
 set(TEST_SOURCES
     tests/test_main.cpp
-    tests/test_task.cpp
+    tests/test_node.cpp
     tests/test_list.cpp
     # Add more test files here...
 )

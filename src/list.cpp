@@ -10,7 +10,7 @@ List::~List() {
   while (head != nullptr) {
 
     // save the pointer to current node in a tmp
-    Task* tmp = head;
+    Node* tmp = head;
 
     // go to the next node
     head = head->getNext();
@@ -21,19 +21,19 @@ List::~List() {
 }
 
 // getter
-Task* List::getHead() {
+Node* List::getHead() {
   return head;
 }
 
 // function to append a task to a list
-void List::appendTask(Task* newTask) {
+void List::appendNode(Node* newNode) {
   // check if list is empty
   if (head == nullptr) {
-    head = newTask;
+    head = newNode;
   } else {
   
   // starting node is the head
-  Task* current = head;
+  Node* current = head;
 
   // traverse the list until next of current node is empty
   while (current->getNext() != nullptr) {
@@ -41,12 +41,12 @@ void List::appendTask(Task* newTask) {
   }
   
   // append task to list
-  current->setNext(newTask);
+  current->setNext(newNode);
   }
 }
 
 // function to delete a task by its title
-void List::deleteTaskByTitle(std::string title) {
+void List::deleteNodeByTitle(std::string title) {
   
   // check if list is empty
   if (head == nullptr) {
@@ -56,14 +56,14 @@ void List::deleteTaskByTitle(std::string title) {
 
   // check if head is task to be deleted
   if (head->getTitle() == title) {
-    Task* tmp = head;
+    Node* tmp = head;
     head = tmp->getNext();
     delete tmp;
     return;
   }
 
   // otherwise, set a search starting point
-  Task* current = head;
+  Node* current = head;
 
   // check if the next node is not a nullptr and nexts node's title is not the searched title
   while (current->getNext() != nullptr && 
@@ -76,7 +76,7 @@ void List::deleteTaskByTitle(std::string title) {
   // if task is found check if next is not a nullptr
   if (current->getNext() != nullptr) {
 
-    Task* tmp = current->getNext();
+    Node* tmp = current->getNext();
     
     // link around the node to be deleted
     current->setNext(tmp->getNext());

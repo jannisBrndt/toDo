@@ -9,81 +9,83 @@ TEST(TestList, EmptyConstructorInitialization) {
   EXPECT_EQ(test.getHead(), nullptr);
 }
 
-TEST(TestList, AppendOneTask) {
+TEST(TestList, AppendOneNode) {
 
   // create some mock data
   std::string title = "test";
   std::string description = "test description";
   size_t id = 1;
-  Task* next = nullptr;
+  Node* next = nullptr;
 
   // create a mock task from the data above
-  Task* newTask = createTask(title, description, id, next);
+  Node* newNode = createNode(title, description, id, next);
 
   // create a list
   List test;
   
   // append the mock task to the mock list
-  test.appendTask(newTask);
+  test.appendNode(newNode);
 
   // appended task should be first
-  EXPECT_EQ(test.getHead(), newTask);
+  EXPECT_EQ(test.getHead(), newNode);
 
 }
 
-TEST(TestList, AppendTwoTasks) {
+TEST(TestList, AppendTwoNodes) {
 
   // create some mock data for first new task
   std::string title1 = "test 1";
   std::string description1 = "test description 2";
   size_t id1 = 1;
-  Task* next1 = nullptr;
+  Node* next1 = nullptr;
   
   // create some mock data for second new task
   std::string title2 = "test 2";
   std::string description2 = "test description 2";
   size_t id2 = 2;
-  Task* next2 = nullptr;
+  Node* next2 = nullptr;
 
   // create a mock task from the data above
-  Task* newTask1 = createTask(title1, description1, id1, next1);
+  Node* newNode1 = createNode(title1, description1, id1, next1);
 
-  Task* newTask2 = createTask(title2, description2, id2, next2);
+  Node* newNode2 = createNode(title2, description2, id2, next2);
 
   // create a list
   List test;
   
   // append the mock task to the mock list
-  test.appendTask(newTask1);
+  test.appendNode(newNode1);
 
-  test.appendTask(newTask2);
+  test.appendNode(newNode2);
 
   // appended task should be first
-  EXPECT_EQ(test.getHead(), newTask1);
-  EXPECT_EQ(test.getHead()->getNext(), newTask2);
+  EXPECT_EQ(test.getHead(), newNode1);
+  EXPECT_EQ(test.getHead()->getNext(), newNode2);
 
 }
 
-TEST(TestList, DeleteTaskByTitle) {
+TEST(TestList, DeleteNodeByTitle) {
   
   // create some mock data
   std::string title = "test";
   std::string description = "test description";
   size_t id = 1;
-  Task* next = nullptr;
+  Node* next = nullptr;
 
   // create a mock task from the data above
-  Task* newTask = createTask(title, description, id, next);
+  Node* newNode = createNode(title, description, id, next);
 
   // create a list
   List test;
   
   // append the mock task to the mock list
-  test.appendTask(newTask);
+  test.appendNode(newNode);
   
   // delete the task
-  test.deleteTaskByTitle(title);
+  test.deleteNodeByTitle(title);
   
   // the head should be nullptr
   EXPECT_EQ(test.getHead(), nullptr);
 }
+
+// testing functionality of displaying function

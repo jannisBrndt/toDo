@@ -1,17 +1,17 @@
 #include <gtest/gtest.h>
-#include "../include/task.h"
+#include "../include/node.h"
 
 // test the initialization of the constructor
-TEST(TestTask, ConstructorInitialization) {
+TEST(TestNode, ConstructorInitialization) {
   
   // create a mock title, description and id
   std::string title = "test";
   std::string description = "this is a test";
   size_t id = 1;
-  Task* next = nullptr;
+  Node* next = nullptr;
   
   //initialize test task with parameters above
-  Task test(title, description, id, next);
+  Node test(title, description, id, next);
  
   // the tasks title should be equal to the parameter above
   EXPECT_EQ(test.getTitle(), title);
@@ -24,15 +24,15 @@ TEST(TestTask, ConstructorInitialization) {
 }
 
 // test the functionality of setter functions
-TEST(TestTask, SetterFunctionality) {
+TEST(TestNode, SetterFunctionality) {
   // create mock data for the task
   std::string title = "test";
   std::string description = "this is a test";
   size_t id = 1;
-  Task* next = nullptr;
+  Node* next = nullptr;
   
   // initialize a task with the mock data
-  Task test(title, description, id, next);
+  Node test(title, description, id, next);
   
   // create a new title
   std::string newTitle = "new title";
@@ -40,7 +40,7 @@ TEST(TestTask, SetterFunctionality) {
   size_t newId = 2;
 
   // create a node that will be the next
-  Task testNext("next node", "this is the next node", 3, nullptr);
+  Node testNext("next node", "this is the next node", 3, nullptr);
 
   test.setTitle(newTitle);
   test.setDescription(newDescription);
